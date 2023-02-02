@@ -9,7 +9,7 @@ export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const {signIn} = useAuth()
-
+//função 
   function handleSignIn() {
   
     signIn({email, password})
