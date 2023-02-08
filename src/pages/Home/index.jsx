@@ -15,9 +15,11 @@ export function Home() {
   const [tagsSelected, setTagsSelected] = useState([])
   const [notes, setNotes] = useState([])
   const navigate = useNavigate()
+
   function handleDetails(id) {
     navigate(`/details/${id}`)
   }
+  
   function handleTagSelected(tagName) {
     if(tagName === 'All') {
     return setTagsSelected([])

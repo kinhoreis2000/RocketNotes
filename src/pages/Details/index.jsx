@@ -18,6 +18,33 @@ export function Details() {
   function handleBack() {
     navigate('/')
   }
+
+  function handleNoteDelete() {
+    const confirm = window.confirm('Deseja realmente apagar a nota? ')
+    if(confirm){
+    
+      try{
+
+      async function fetchNote() {
+        
+        const response = await api.get(`/notes/${params.id}`)
+        const note_id = response.data.id 
+
+        api.delete(`/notes/${note_id}`)
+        alert('nota deletada com sucesso')
+        navigate('/')
+
+
+      }
+
+        fetchNote()
+      }
+
+      catch{
+      alert(`Não foi possível excluir a nota`) 
+      }
+    }
+  }
   useEffect(()=>{
     async function fetchNote() {
       const response = await api.get(`/notes/${params.id}`)
@@ -26,8 +53,6 @@ export function Details() {
     fetchNote()
 
   }, [])
-
-
   return(
     <Container>
       <Header/>  
@@ -35,11 +60,12 @@ export function Details() {
         data &&
       <main>
         <Content>
-         <div class='head'>
-          <h1>{data.title}</h1>
-          <ButtonText  title = 'Excluir a nota'/>
+          <div className = 'head'>
+        <h1>{data.title}</h1>
+        <ButtonText onClick = { handleNoteDelete} title = 'Excluir a nota'/>
         </div>
-          <p>{data.description}</p>
+        <p>{data.description}</p>
+
     {  data.links && 
        <Section title='Links úteis'>
           
