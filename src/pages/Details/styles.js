@@ -16,6 +16,13 @@ export const Container = styled.div`
     padding: 64px 0;
 
   }
+
+  .head {
+    display:flex ;
+    justify-content: space-between;
+
+
+  }
   
 `
 

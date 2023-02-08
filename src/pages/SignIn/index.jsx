@@ -5,14 +5,17 @@ import { FiMail, FiLock} from 'react-icons/fi'
 import {useAuth} from '../../hooks/auth'
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
+
 export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const {signIn} = useAuth()
-//função 
+
   function handleSignIn() {
   
     signIn({email, password})
+
   }
 
 
