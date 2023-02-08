@@ -61,7 +61,7 @@ export function NewNote() {
       })
 
       alert('Nota criada com sucesso')
-      navigate('/')
+      navigate(-1)
 
 
   }

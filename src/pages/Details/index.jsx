@@ -16,7 +16,7 @@ export function Details() {
   const navigate = useNavigate()
 
   function handleBack() {
-    navigate('/')
+    navigate(-1)
   }
 
   function handleNoteDelete() {
@@ -32,7 +32,7 @@ export function Details() {
 
         api.delete(`/notes/${note_id}`)
         alert('nota deletada com sucesso')
-        navigate('/')
+        navigate(-1)
 
 
       }
